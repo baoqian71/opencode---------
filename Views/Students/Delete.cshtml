@@ -1,0 +1,26 @@
+@model StudentManager.Models.Student
+@{
+    ViewData["Title"] = "删除学生";
+}
+
+<div class="card border-danger">
+    <div class="card-header text-danger">
+        <h1 class="h3 mb-0"><i class="fas fa-exclamation-triangle"></i> @ViewData["Title"]</h1>
+    </div>
+    <div class="card-body">
+        <h5 class="text-danger mb-3"><i class="fas fa-question-circle"></i> 确定要删除以下学生吗？</h5>
+        <dl class="row">
+            <dt class="col-sm-2">学号</dt>
+            <dd class="col-sm-10"><code>@Model.StudentNo</code></dd>
+            <dt class="col-sm-2">姓名</dt>
+            <dd class="col-sm-10"><strong>@Model.Name</strong></dd>
+            <dt class="col-sm-2">班级</dt>
+            <dd class="col-sm-10">@Model.Class</dd>
+        </dl>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> 确认删除</button>
+            <a asp-action="Index" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> 返回列表</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "首页";
+}
+
+<div class="card">
+    <div class="card-body welcome-card">
+        <div class="welcome-icon">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h1>欢迎使用学生管理系统</h1>
+        <p>本系统用于管理学生、课程与成绩信息。</p>
+        <p>管理员可维护学生、课程、成绩与用户；学生可查看自己的成绩。</p>
+        @if (Context.Session.GetString("Username") == null)
+        {
+            <div class="btn-group">
+                <a asp-controller="Account" asp-action="Login" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt"></i> 登录系统
+                </a>
+                <a asp-controller="Account" asp-action="Register" class="btn btn-outline-primary">
+                    <i class="fas fa-user-plus"></i> 注册账号
+                </a>
+            </div>
+        }
+    </div>
+</div>

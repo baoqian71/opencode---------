@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "错误";
+}
+
+<div class="card border-danger">
+    <div class="card-header text-danger">
+        <h1 class="h3 mb-0"><i class="fas fa-exclamation-circle"></i> @ViewData["Title"]</h1>
+    </div>
+    <div class="card-body">
+        <h5 class="text-danger"><i class="fas fa-exclamation-triangle"></i> 处理请求时发生了一个错误。</h5>
+
+        @if (Model != null && Model.RequestId != null)
+        {
+            <p>
+                <strong>Request ID:</strong> <code>@Model.RequestId</code>
+            </p>
+        }
+    </div>
+</div>

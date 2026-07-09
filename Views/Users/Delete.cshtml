@@ -1,0 +1,33 @@
+@model StudentManager.Models.User
+@{
+    ViewData["Title"] = "删除用户";
+}
+
+<div class="card border-danger">
+    <div class="card-header text-danger">
+        <h1 class="h3 mb-0"><i class="fas fa-exclamation-triangle"></i> @ViewData["Title"]</h1>
+    </div>
+    <div class="card-body">
+        <h5 class="text-danger mb-3"><i class="fas fa-question-circle"></i> 确定要删除该用户吗？</h5>
+        <dl class="row">
+            <dt class="col-sm-2">用户名</dt>
+            <dd class="col-sm-10"><strong>@Model.Username</strong></dd>
+            <dt class="col-sm-2">角色</dt>
+            <dd class="col-sm-10">
+                @if (Model.Role == "Admin")
+                {
+                    <span class="badge bg-warning text-dark">管理员</span>
+                }
+                else
+                {
+                    <span class="badge bg-info">用户</span>
+                }
+            </dd>
+        </dl>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> 确认删除</button>
+            <a asp-action="Index" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> 返回列表</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+@model List<StudentManager.Models.Course>
+@{
+    ViewData["Title"] = "课程列表";
+}
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h1 class="h3 mb-0"><i class="fas fa-book"></i> @ViewData["Title"]</h1>
+        @if (Context.Session.GetString("Role") == "Admin")
+        {
+            <a asp-action="Create" class="btn btn-success"><i class="fas fa-plus"></i> 新增课程</a>
+        }
+    </div>
+    <div class="card-body">
+        @if (Model.Count == 0)
+        {
+            <div class="empty-state">
+                <i class="fas fa-book"></i>
+                <p>暂无课程记录</p>
+                @if (Context.Session.GetString("Role") == "Admin")
+                {
+                    <a asp-action="Create" class="btn btn-primary mt-2"><i class="fas fa-plus"></i> 新增第一个课程</a>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>课程名称</th>
+                            <th>授课教师</th>
+                            @if (Context.Session.GetString("Role") == "Admin")
+                            {
+                                <th class="text-center" style="width: 160px;">操作</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><i class="fas fa-book-open text-primary me-1"></i> <strong>@item.CourseName</strong></td>
+                                <td><i class="fas fa-chalkboard-teacher text-muted me-1"></i> @item.Teacher</td>
+                                @if (Context.Session.GetString("Role") == "Admin")
+                                {
+                                    <td class="text-center">
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary me-1" title="编辑">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger" title="删除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>

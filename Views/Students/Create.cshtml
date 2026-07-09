@@ -1,0 +1,30 @@
+@model StudentManager.Models.Student
+@{
+    ViewData["Title"] = "新增学生";
+}
+
+<div class="card form-card">
+    <div class="card-header">
+        <h1 class="h3 mb-0"><i class="fas fa-user-plus"></i> @ViewData["Title"]</h1>
+    </div>
+    <div class="card-body">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="StudentNo" class="control-label"></label>
+                <input asp-for="StudentNo" class="form-control" placeholder="请输入学号" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" placeholder="请输入姓名" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Class" class="control-label"></label>
+                <input asp-for="Class" class="form-control" placeholder="请输入班级" />
+            </div>
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> 保存</button>
+                <a asp-action="Index" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> 返回列表</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+@model List<StudentManager.Models.Student>
+@{
+    ViewData["Title"] = "学生列表";
+}
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h1 class="h3 mb-0"><i class="fas fa-user-graduate"></i> @ViewData["Title"]</h1>
+        @if (Context.Session.GetString("Role") == "Admin")
+        {
+            <a asp-action="Create" class="btn btn-success"><i class="fas fa-plus"></i> 新增学生</a>
+        }
+    </div>
+    <div class="card-body">
+        <form asp-action="Index" method="get" class="search-bar mb-3">
+            <div class="input-group">
+                <input type="text" name="searchString" value="@ViewData["SearchString"]" class="form-control" placeholder="按姓名或学号搜索" />
+                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> 搜索</button>
+            </div>
+        </form>
+
+        @if (Model.Count == 0)
+        {
+            <div class="empty-state">
+                <i class="fas fa-users"></i>
+                <p>暂无学生记录</p>
+                @if (Context.Session.GetString("Role") == "Admin")
+                {
+                    <a asp-action="Create" class="btn btn-primary mt-2"><i class="fas fa-plus"></i> 新增第一个学生</a>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <th>班级</th>
+                            @if (Context.Session.GetString("Role") == "Admin")
+                            {
+                                <th class="text-center" style="width: 160px;">操作</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><code>@item.StudentNo</code></td>
+                                <td><strong>@item.Name</strong></td>
+                                <td><i class="fas fa-users-class text-muted me-1"></i> @item.Class</td>
+                                @if (Context.Session.GetString("Role") == "Admin")
+                                {
+                                    <td class="text-center">
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary me-1" title="编辑">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger" title="删除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>

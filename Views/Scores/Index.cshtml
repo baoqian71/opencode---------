@@ -1,0 +1,57 @@
+@model List<StudentManager.Models.Score>
+@{
+    ViewData["Title"] = "成绩管理";
+}
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h1 class="h3 mb-0"><i class="fas fa-chart-line"></i> @ViewData["Title"]</h1>
+        <a asp-action="Create" class="btn btn-success"><i class="fas fa-plus"></i> 录入成绩</a>
+    </div>
+    <div class="card-body">
+        @if (Model.Count == 0)
+        {
+            <div class="empty-state">
+                <i class="fas fa-file-alt"></i>
+                <p>暂无成绩记录</p>
+                <a asp-action="Create" class="btn btn-primary mt-2"><i class="fas fa-plus"></i> 录入第一个成绩</a>
+            </div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>学生</th>
+                            <th>课程</th>
+                            <th>成绩</th>
+                            <th>录入日期</th>
+                            <th class="text-center" style="width: 100px;">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><i class="fas fa-user-graduate text-muted me-1"></i> @(item.Student?.Name)</td>
+                                <td><i class="fas fa-book text-primary me-1"></i> @(item.Course?.CourseName)</td>
+                                <td>
+                                    <span class="badge @(item.Grade >= 60 ? "bg-success" : "bg-danger") fs-6">
+                                        @item.Grade.ToString("F2")
+                                    </span>
+                                </td>
+                                <td><i class="far fa-calendar-alt text-muted me-1"></i> @item.ScoreDate.ToString("yyyy-MM-dd")</td>
+                                <td class="text-center">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" title="编辑">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>

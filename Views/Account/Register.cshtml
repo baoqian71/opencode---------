@@ -1,0 +1,32 @@
+@model StudentManager.Models.User
+@{
+    ViewData["Title"] = "注册";
+}
+
+<div class="auth-card">
+    <div class="card">
+        <div class="card-body">
+            <h2><i class="fas fa-user-plus"></i> @ViewData["Title"]</h2>
+
+            <form asp-action="Register">
+                <div class="form-group">
+                    <label asp-for="Username" class="control-label"></label>
+                    <input asp-for="Username" class="form-control" placeholder="请设置用户名" />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="请设置密码" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-3">
+                    <input type="submit" value="注册" class="btn btn-primary" />
+                </div>
+            </form>
+
+            <div class="auth-footer">
+                <a asp-action="Login"><i class="fas fa-sign-in-alt"></i> 已有账号？登录</a>
+            </div>
+        </div>
+    </div>
+</div>
