@@ -2,7 +2,7 @@ using StudentManager.Data; // 引入应用程序的数据访问相关类
 using StudentManager.Models; // 引入应用程序的模型类
 using Microsoft.AspNetCore.Mvc; // 引入 ASP.NET Core MVC 的核心功能
 using Microsoft.EntityFrameworkCore; // 引入 Entity Framework Core 的核心功能
-
+Hello World
 namespace StudentManager.Controllers
 {
     // 账户控制器：负责注册、登录、注销、查看我的成绩
