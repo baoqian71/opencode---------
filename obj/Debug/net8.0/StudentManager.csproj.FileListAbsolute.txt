@@ -137,3 +137,4 @@ D:\桌面图标\Web项目\opencode修改版学生管理系统\obj\Debug\net8.0\r
 D:\桌面图标\Web项目\opencode修改版学生管理系统\obj\Debug\net8.0\StudentManager.pdb
 D:\桌面图标\Web项目\opencode修改版学生管理系统\obj\Debug\net8.0\StudentManager.genruntimeconfig.cache
 D:\桌面图标\Web项目\opencode修改版学生管理系统\obj\Debug\net8.0\ref\StudentManager.dll
+D:\桌面图标\Web项目\opencode修改版学生管理系统\obj\Debug\net8.0\StudentManager.sourcelink.json
