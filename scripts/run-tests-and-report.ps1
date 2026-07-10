@@ -153,8 +153,9 @@ $sb.AppendLine('.ti .td{font-size:12px;color:#888;margin-top:2px}') | Out-Null
 
 # Tables
 $sb.AppendLine('.tbl{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:12px}') | Out-Null
-$sb.AppendLine('.tbl th{text-align:left;padding:8px 12px;background:#f8f9fa;color:#666;font-weight:600;font-size:12px;border-bottom:2px solid #e0e0e0}') | Out-Null
-$sb.AppendLine('.tbl td{padding:8px 12px;border-bottom:1px solid #f0f0f0}') | Out-Null
+$sb.AppendLine('.tbl th{text-align:left;padding:10px 14px;background:#f8f9fa;color:#666;font-weight:600;font-size:12px;border-bottom:2px solid #e0e0e0;white-space:nowrap}') | Out-Null
+$sb.AppendLine('.tbl td{padding:10px 14px;border-bottom:1px solid #f0f0f0;vertical-align:middle}') | Out-Null
+$sb.AppendLine('.tbl-api th:nth-child(1){width:8%}.tbl-api th:nth-child(2){width:28%}.tbl-api th:nth-child(3){width:15%}.tbl-api th:nth-child(4){width:8%}.tbl-api th:nth-child(5){width:41%}') | Out-Null
 $sb.AppendLine('.tbl tr:hover td{background:#fafafa}') | Out-Null
 $sb.AppendLine('.tbl .mono{font-family:"SF Mono","Consolas",monospace;font-size:12px}') | Out-Null
 $sb.AppendLine('.tbl .badge{display:inline-block;padding:1px 8px;border-radius:8px;font-size:11px;font-weight:500}') | Out-Null
@@ -270,7 +271,7 @@ $sb.AppendLine('<div class="sec-hdr"><span class="sec-num">④</span><h2>API 接
 
 # Account
 $sb.AppendLine('<h3>📁 AccountController <span style="font-weight:400;font-size:12px;color:#888">/Account/*</span></h3>') | Out-Null
-$sb.AppendLine('<table class="tbl"><thead><tr><th style="width:60px">HTTP</th><th>路由</th><th>方法</th><th style="width:70px">权限</th><th>功能说明</th></tr></thead><tbody>') | Out-Null
+$sb.AppendLine('<table class="tbl tbl-api"><thead><tr><th>HTTP</th><th>路由</th><th>方法</th><th>权限</th><th>功能说明</th></tr></thead><tbody>') | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Account/Register</td><td>Register()</td><td><span class='badge bg-blue'>公开</span></td><td>显示注册表单</td></tr>") | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-orange'>POST</span></td><td class='mono'>/Account/Register</td><td>Register(User)</td><td><span class='badge bg-blue'>公开</span></td><td>创建新用户账号</td></tr>") | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Account/Login</td><td>Login()</td><td><span class='badge bg-blue'>公开</span></td><td>显示登录表单</td></tr>") | Out-Null
@@ -281,7 +282,7 @@ $sb.AppendLine('</tbody></table>') | Out-Null
 
 # Home
 $sb.AppendLine('<h3>🏠 HomeController <span style="font-weight:400;font-size:12px;color:#888">/Home/*</span></h3>') | Out-Null
-$sb.AppendLine('<table class="tbl"><thead><tr><th style="width:60px">HTTP</th><th>路由</th><th>方法</th><th style="width:70px">权限</th><th>功能说明</th></tr></thead><tbody>') | Out-Null
+$sb.AppendLine('<table class="tbl tbl-api"><thead><tr><th>HTTP</th><th>路由</th><th>方法</th><th>权限</th><th>功能说明</th></tr></thead><tbody>') | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Home/Index</td><td>Index()</td><td><span class='badge bg-blue'>公开</span></td><td>首页 / 欢迎页面</td></tr>") | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Home/Privacy</td><td>Privacy()</td><td><span class='badge bg-blue'>公开</span></td><td>隐私政策页面</td></tr>") | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Home/Error</td><td>Error()</td><td><span class='badge bg-blue'>公开</span></td><td>错误页面（带 ErrorViewModel）</td></tr>") | Out-Null
@@ -289,7 +290,7 @@ $sb.AppendLine('</tbody></table>') | Out-Null
 
 # Students
 $sb.AppendLine('<h3>👨‍🎓 StudentsController <span style="font-weight:400;font-size:12px;color:#888">/Students/*</span></h3>') | Out-Null
-$sb.AppendLine('<table class="tbl"><thead><tr><th style="width:60px">HTTP</th><th>路由</th><th>方法</th><th style="width:70px">权限</th><th>功能说明</th></tr></thead><tbody>') | Out-Null
+$sb.AppendLine('<table class="tbl tbl-api"><thead><tr><th>HTTP</th><th>路由</th><th>方法</th><th>权限</th><th>功能说明</th></tr></thead><tbody>') | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Students/Index?searchString=</td><td>Index()</td><td><span class='badge bg-blue'>公开</span></td><td>学生列表（支持搜索）</td></tr>") | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Students/Create</td><td>Create()</td><td><span class='badge bg-orange'>管理员</span></td><td>显示添加学生表单</td></tr>") | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-orange'>POST</span></td><td class='mono'>/Students/Create</td><td>Create(Student)</td><td><span class='badge bg-orange'>管理员</span></td><td>新增学生记录</td></tr>") | Out-Null
@@ -301,7 +302,7 @@ $sb.AppendLine('</tbody></table>') | Out-Null
 
 # Courses
 $sb.AppendLine('<h3>📚 CoursesController <span style="font-weight:400;font-size:12px;color:#888">/Courses/*</span></h3>') | Out-Null
-$sb.AppendLine('<table class="tbl"><thead><tr><th style="width:60px">HTTP</th><th>路由</th><th>方法</th><th style="width:70px">权限</th><th>功能说明</th></tr></thead><tbody>') | Out-Null
+$sb.AppendLine('<table class="tbl tbl-api"><thead><tr><th>HTTP</th><th>路由</th><th>方法</th><th>权限</th><th>功能说明</th></tr></thead><tbody>') | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Courses/Index</td><td>Index()</td><td><span class='badge bg-blue'>公开</span></td><td>课程列表</td></tr>") | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Courses/Create</td><td>Create()</td><td><span class='badge bg-orange'>管理员</span></td><td>显示添加课程表单</td></tr>") | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-orange'>POST</span></td><td class='mono'>/Courses/Create</td><td>Create(Course)</td><td><span class='badge bg-orange'>管理员</span></td><td>新增课程</td></tr>") | Out-Null
@@ -313,7 +314,7 @@ $sb.AppendLine('</tbody></table>') | Out-Null
 
 # Scores
 $sb.AppendLine('<h3>📊 ScoresController <span style="font-weight:400;font-size:12px;color:#888">/Scores/*</span></h3>') | Out-Null
-$sb.AppendLine('<table class="tbl"><thead><tr><th style="width:60px">HTTP</th><th>路由</th><th>方法</th><th style="width:70px">权限</th><th>功能说明</th></tr></thead><tbody>') | Out-Null
+$sb.AppendLine('<table class="tbl tbl-api"><thead><tr><th>HTTP</th><th>路由</th><th>方法</th><th>权限</th><th>功能说明</th></tr></thead><tbody>') | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Scores/Index</td><td>Index()</td><td><span class='badge bg-orange'>管理员</span></td><td>全部成绩列表（含学生和课程信息）</td></tr>") | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Scores/Create</td><td>Create()</td><td><span class='badge bg-orange'>管理员</span></td><td>显示录入成绩表单</td></tr>") | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-orange'>POST</span></td><td class='mono'>/Scores/Create</td><td>Create(Score)</td><td><span class='badge bg-orange'>管理员</span></td><td>提交成绩（ScoreDate 自动赋值）</td></tr>") | Out-Null
@@ -323,7 +324,7 @@ $sb.AppendLine('</tbody></table>') | Out-Null
 
 # Users
 $sb.AppendLine('<h3>👤 UsersController <span style="font-weight:400;font-size:12px;color:#888">/Users/*</span></h3>') | Out-Null
-$sb.AppendLine('<table class="tbl"><thead><tr><th style="width:60px">HTTP</th><th>路由</th><th>方法</th><th style="width:70px">权限</th><th>功能说明</th></tr></thead><tbody>') | Out-Null
+$sb.AppendLine('<table class="tbl tbl-api"><thead><tr><th>HTTP</th><th>路由</th><th>方法</th><th>权限</th><th>功能说明</th></tr></thead><tbody>') | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Users/Index</td><td>Index()</td><td><span class='badge bg-orange'>管理员</span></td><td>用户列表</td></tr>") | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Users/Edit/{id}</td><td>Edit(id)</td><td><span class='badge bg-orange'>管理员</span></td><td>显示编辑用户表单</td></tr>") | Out-Null
 $sb.AppendLine("<tr><td><span class='badge bg-orange'>POST</span></td><td class='mono'>/Users/Edit/{id}</td><td>Edit(User)</td><td><span class='badge bg-orange'>管理员</span></td><td>更新用户信息</td></tr>") | Out-Null

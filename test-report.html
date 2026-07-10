@@ -32,8 +32,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
 .ti .tv{font-size:14px;font-weight:600;color:#2c3e50}
 .ti .td{font-size:12px;color:#888;margin-top:2px}
 .tbl{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:12px}
-.tbl th{text-align:left;padding:8px 12px;background:#f8f9fa;color:#666;font-weight:600;font-size:12px;border-bottom:2px solid #e0e0e0}
-.tbl td{padding:8px 12px;border-bottom:1px solid #f0f0f0}
+.tbl th{text-align:left;padding:10px 14px;background:#f8f9fa;color:#666;font-weight:600;font-size:12px;border-bottom:2px solid #e0e0e0;white-space:nowrap}
+.tbl td{padding:10px 14px;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.tbl-api th:nth-child(1){width:8%}.tbl-api th:nth-child(2){width:28%}.tbl-api th:nth-child(3){width:15%}.tbl-api th:nth-child(4){width:8%}.tbl-api th:nth-child(5){width:41%}
 .tbl tr:hover td{background:#fafafa}
 .tbl .mono{font-family:"SF Mono","Consolas",monospace;font-size:12px}
 .tbl .badge{display:inline-block;padding:1px 8px;border-radius:8px;font-size:11px;font-weight:500}
@@ -60,7 +61,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
 .ft{text-align:center;padding:24px 0;font-size:12px;color:#aaa}
 @media(max-width:768px){.d{grid-template-columns:repeat(2,1fr)}.tg{grid-template-columns:repeat(2,1fr)}.h h1{font-size:20px}}
 </style></head><body><div class="c">
-<div class="h"><h1>📋 学生管理系统 · 综合测试报告</h1><div class="sub">StudentManager ASP.NET Core MVC — 全量测试与项目分析</div><div class="ver">生成时间：2026-07-10 14:22 | .NET 8 + ASP.NET Core MVC + MySQL</div></div>
+<div class="h"><h1>📋 学生管理系统 · 综合测试报告</h1><div class="sub">StudentManager ASP.NET Core MVC — 全量测试与项目分析</div><div class="ver">生成时间：2026-07-10 14:33 | .NET 8 + ASP.NET Core MVC + MySQL</div></div>
 <div class="d">
 <div class='cd t0'><div class='n'>56</div><div class='l'>总测试用例</div></div>
 <div class='cd t1'><div class='n'>56</div><div class='l'>通过</div></div>
@@ -120,7 +121,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
 <div class="sec">
 <div class="sec-hdr"><span class="sec-num">④</span><h2>API 接口清单</h2></div>
 <h3>📁 AccountController <span style="font-weight:400;font-size:12px;color:#888">/Account/*</span></h3>
-<table class="tbl"><thead><tr><th style="width:60px">HTTP</th><th>路由</th><th>方法</th><th style="width:70px">权限</th><th>功能说明</th></tr></thead><tbody>
+<table class="tbl tbl-api"><thead><tr><th>HTTP</th><th>路由</th><th>方法</th><th>权限</th><th>功能说明</th></tr></thead><tbody>
 <tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Account/Register</td><td>Register()</td><td><span class='badge bg-blue'>公开</span></td><td>显示注册表单</td></tr>
 <tr><td><span class='badge bg-orange'>POST</span></td><td class='mono'>/Account/Register</td><td>Register(User)</td><td><span class='badge bg-blue'>公开</span></td><td>创建新用户账号</td></tr>
 <tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Account/Login</td><td>Login()</td><td><span class='badge bg-blue'>公开</span></td><td>显示登录表单</td></tr>
@@ -129,13 +130,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
 <tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Account/MyScores</td><td>MyScores()</td><td><span class='badge bg-purple'>需登录</span></td><td>查看自己的成绩</td></tr>
 </tbody></table>
 <h3>🏠 HomeController <span style="font-weight:400;font-size:12px;color:#888">/Home/*</span></h3>
-<table class="tbl"><thead><tr><th style="width:60px">HTTP</th><th>路由</th><th>方法</th><th style="width:70px">权限</th><th>功能说明</th></tr></thead><tbody>
+<table class="tbl tbl-api"><thead><tr><th>HTTP</th><th>路由</th><th>方法</th><th>权限</th><th>功能说明</th></tr></thead><tbody>
 <tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Home/Index</td><td>Index()</td><td><span class='badge bg-blue'>公开</span></td><td>首页 / 欢迎页面</td></tr>
 <tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Home/Privacy</td><td>Privacy()</td><td><span class='badge bg-blue'>公开</span></td><td>隐私政策页面</td></tr>
 <tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Home/Error</td><td>Error()</td><td><span class='badge bg-blue'>公开</span></td><td>错误页面（带 ErrorViewModel）</td></tr>
 </tbody></table>
 <h3>👨‍🎓 StudentsController <span style="font-weight:400;font-size:12px;color:#888">/Students/*</span></h3>
-<table class="tbl"><thead><tr><th style="width:60px">HTTP</th><th>路由</th><th>方法</th><th style="width:70px">权限</th><th>功能说明</th></tr></thead><tbody>
+<table class="tbl tbl-api"><thead><tr><th>HTTP</th><th>路由</th><th>方法</th><th>权限</th><th>功能说明</th></tr></thead><tbody>
 <tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Students/Index?searchString=</td><td>Index()</td><td><span class='badge bg-blue'>公开</span></td><td>学生列表（支持搜索）</td></tr>
 <tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Students/Create</td><td>Create()</td><td><span class='badge bg-orange'>管理员</span></td><td>显示添加学生表单</td></tr>
 <tr><td><span class='badge bg-orange'>POST</span></td><td class='mono'>/Students/Create</td><td>Create(Student)</td><td><span class='badge bg-orange'>管理员</span></td><td>新增学生记录</td></tr>
@@ -145,7 +146,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
 <tr><td><span class='badge bg-orange'>POST</span></td><td class='mono'>/Students/Delete/{id}</td><td>DeleteConfirmed(id)</td><td><span class='badge bg-orange'>管理员</span></td><td>执行删除操作</td></tr>
 </tbody></table>
 <h3>📚 CoursesController <span style="font-weight:400;font-size:12px;color:#888">/Courses/*</span></h3>
-<table class="tbl"><thead><tr><th style="width:60px">HTTP</th><th>路由</th><th>方法</th><th style="width:70px">权限</th><th>功能说明</th></tr></thead><tbody>
+<table class="tbl tbl-api"><thead><tr><th>HTTP</th><th>路由</th><th>方法</th><th>权限</th><th>功能说明</th></tr></thead><tbody>
 <tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Courses/Index</td><td>Index()</td><td><span class='badge bg-blue'>公开</span></td><td>课程列表</td></tr>
 <tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Courses/Create</td><td>Create()</td><td><span class='badge bg-orange'>管理员</span></td><td>显示添加课程表单</td></tr>
 <tr><td><span class='badge bg-orange'>POST</span></td><td class='mono'>/Courses/Create</td><td>Create(Course)</td><td><span class='badge bg-orange'>管理员</span></td><td>新增课程</td></tr>
@@ -155,7 +156,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
 <tr><td><span class='badge bg-orange'>POST</span></td><td class='mono'>/Courses/Delete/{id}</td><td>DeleteConfirmed(id)</td><td><span class='badge bg-orange'>管理员</span></td><td>执行删除操作</td></tr>
 </tbody></table>
 <h3>📊 ScoresController <span style="font-weight:400;font-size:12px;color:#888">/Scores/*</span></h3>
-<table class="tbl"><thead><tr><th style="width:60px">HTTP</th><th>路由</th><th>方法</th><th style="width:70px">权限</th><th>功能说明</th></tr></thead><tbody>
+<table class="tbl tbl-api"><thead><tr><th>HTTP</th><th>路由</th><th>方法</th><th>权限</th><th>功能说明</th></tr></thead><tbody>
 <tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Scores/Index</td><td>Index()</td><td><span class='badge bg-orange'>管理员</span></td><td>全部成绩列表（含学生和课程信息）</td></tr>
 <tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Scores/Create</td><td>Create()</td><td><span class='badge bg-orange'>管理员</span></td><td>显示录入成绩表单</td></tr>
 <tr><td><span class='badge bg-orange'>POST</span></td><td class='mono'>/Scores/Create</td><td>Create(Score)</td><td><span class='badge bg-orange'>管理员</span></td><td>提交成绩（ScoreDate 自动赋值）</td></tr>
@@ -163,7 +164,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
 <tr><td><span class='badge bg-orange'>POST</span></td><td class='mono'>/Scores/Edit/{id}</td><td>Edit(Score)</td><td><span class='badge bg-orange'>管理员</span></td><td>更新成绩（保留原 ScoreDate）</td></tr>
 </tbody></table>
 <h3>👤 UsersController <span style="font-weight:400;font-size:12px;color:#888">/Users/*</span></h3>
-<table class="tbl"><thead><tr><th style="width:60px">HTTP</th><th>路由</th><th>方法</th><th style="width:70px">权限</th><th>功能说明</th></tr></thead><tbody>
+<table class="tbl tbl-api"><thead><tr><th>HTTP</th><th>路由</th><th>方法</th><th>权限</th><th>功能说明</th></tr></thead><tbody>
 <tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Users/Index</td><td>Index()</td><td><span class='badge bg-orange'>管理员</span></td><td>用户列表</td></tr>
 <tr><td><span class='badge bg-green'>GET</span></td><td class='mono'>/Users/Edit/{id}</td><td>Edit(id)</td><td><span class='badge bg-orange'>管理员</span></td><td>显示编辑用户表单</td></tr>
 <tr><td><span class='badge bg-orange'>POST</span></td><td class='mono'>/Users/Edit/{id}</td><td>Edit(User)</td><td><span class='badge bg-orange'>管理员</span></td><td>更新用户信息</td></tr>
@@ -237,6 +238,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
   <div class='cb'><table class='tt'><thead><tr><th style='width:60%'>测试用例</th><th style='width:20%'>结果</th><th style='width:20%'>耗时</th></tr></thead><tbody><tr><td class='tn'>Logout_清除Session并重定向到登录</td><td><span class='b b-p'>通过</span></td><td class='d'>00:00:00.0019539</td></tr><tr><td class='tn'>MyScores_未登录_重定向到登录</td><td><span class='b b-p'>通过</span></td><td class='d'>00:00:00.0001416</td></tr><tr><td class='tn'>MyScores_已登录无关联学生_返回空列表</td><td><span class='b b-p'>通过</span></td><td class='d'>00:00:00.0005830</td></tr><tr><td class='tn'>Register_GET_返回注册视图</td><td><span class='b b-p'>通过</span></td><td class='d'>00:00:00.0002162</td></tr><tr><td class='tn'>Register_POST_有效数据_重定向到登录</td><td><span class='b b-p'>通过</span></td><td class='d'>00:00:00.0004553</td></tr><tr><td class='tn'>Register_POST_无效模型_返回视图带模型</td><td><span class='b b-p'>通过</span></td><td class='d'>00:00:00.0012733</td></tr><tr><td class='tn'>MyScores_已登录有学生_返回成绩</td><td><span class='b b-p'>通过</span></td><td class='d'>00:00:00.0232528</td></tr><tr><td class='tn'>Login_GET_返回登录视图</td><td><span class='b b-p'>通过</span></td><td class='d'>00:00:00.0758465</td></tr><tr><td class='tn'>Login_POST_无效凭据_返回视图带错误</td><td><span class='b b-p'>通过</span></td><td class='d'>00:00:00.0476641</td></tr><tr><td class='tn'>Login_POST_有效凭据_设置Session并重定向</td><td><span class='b b-p'>通过</span></td><td class='d'>00:00:00.2458056</td></tr></tbody></table></div>
 </div>
 </div>
-<div class='ft'>学生管理系统 StudentManager | .NET 8 + ASP.NET Core MVC + MySQL | 报告生成时间：2026-07-10 14:22</div>
+<div class='ft'>学生管理系统 StudentManager | .NET 8 + ASP.NET Core MVC + MySQL | 报告生成时间：2026-07-10 14:33</div>
 <script>document.querySelectorAll('.ch').forEach(function(e){e.addEventListener('click',function(){this.parentElement.classList.toggle('cl')})})</script>
 </body></html>
